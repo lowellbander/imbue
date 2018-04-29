@@ -3,9 +3,13 @@ function getStyle(x, y) {
 }
 
 function onClick(event) {
-  const style = getStyle(event.pageX, event.pageY);
-  const element = `<video autoplay style="width: 200px; ${style}" src="video.mov"/>`
+  const width = 200;
+  const style = getStyle(event.pageX - width / 2, event.pageY - width / 4);
+  const element = `<video autoplay style="width: ${width}px; ${style}" src="video.mov"/>`
   $('#main').append(element);
+  $('video').on('ended', function(e){
+    $(e.target).remove()
+  });
 }
 
 $(document).ready(function(){
