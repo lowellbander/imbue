@@ -1,7 +1,11 @@
+function getStyle(x, y) {
+  return `position: absolute; left: ${x}px; top: ${y}px;`;
+}
+
 function onClick(event) {
-  console.log({event});
-  console.log(event.pageX, event.pageY);
-  $('#main').append(`<p style="position: absolute; left: ${event.pageX}px; top: ${event.pageY}px;">ou no</p>`);
+  const style = getStyle(event.pageX, event.pageY);
+  const element = `<video autoplay style="width: 200px; ${style}" src="video.mov"/>`
+  $('#main').append(element);
 }
 
 $(document).ready(function(){
